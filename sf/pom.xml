@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.bootcamp.services</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>notification.generator.services</module>
+        <module>categorie.service.fonctionnel</module>
+        <module>preference.service.fonctionnel</module>
+        <module>projet.service.fonctionnel</module>
+        <module>commentaire.service.fonctionnel</module>
+        <module>censure.service.fonctionnel</module>
+        <module>debat.service.fonctionnel</module>
+        <module>liketable.service.fonctionnel</module>
+        <module>media.service.fonctionnel</module>
+        <module>note.service.fonctionnel</module>
+        <module>programme.service.fonctionnel</module>
+        <module>sondage.service.fonctionnel</module>
+        <module>statistique.service.fonctionnel</module>
+        <module>debat.service.use.case</module>
+        <module>bootcamp.user</module>
+        <module>eureka-service</module>
+    </modules>
+
+</project>
