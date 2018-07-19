@@ -5,8 +5,8 @@ repository_dir=$1
 #deuxieme parametre representant la branche de laquelle on doit cloner les les projets
 branch=$2
 
-user=$3
-password=$4
+#user=$3
+#password=$4
 
 #Un tableau contenant le nom de tous les projets 
 
@@ -34,7 +34,7 @@ clone_project () {
             # $1 paramet  er is the name of the project to clone
             cd "$repository_dir"
             echo "------------------------------ clone  $projet  project----------------------------------------"
-            git clone https://"$user":"$password"@gitlab.com/pag/"$projet".git -b "$branch"
+            git clone https://github.com/rintiobootcamp/"$projet".git -b "$branch"
     done
 }
 
