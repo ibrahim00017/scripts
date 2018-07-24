@@ -1,0 +1,17 @@
+sf categorie : http://192.168.9.16:6082/categorie/
+sf projet : http://192.168.9.16:8081/projet
+sf censure : http://192.168.9.16:8089/censure
+sf commentaire : http://192.168.9.16:8083/commentaire
+sf debat : http://192.168.9.16:8088/debat
+uc debat : http://192.168.9.16:8095/debatuc
+sf like : http://192.168.9.16:8085/like
+sf media : http://192.168.9.16:8086/media
+sf note : http://192.168.9.16:8084/note
+sf notification : http://192.168.9.16:8092/notification
+sf preference : http://192.168.9.16:8090/preference
+sf programme : http://192.168.9.16:8091/programme
+sf sondage : http://192.168.9.16:8091/sondage
+sf ststistique : http://192.168.9.16:6093/stat
+sf user : http://192.168.9.16:6087/user
+
+
