@@ -17,7 +17,7 @@ cd jars
 echo "========CHEMIN ACTUEL=============="
 jars=echo "pwd"
 
-projets_sf=("categorie.service.fonctionnel" "projet.service.fonctionnel" "commentaire.service.fonctionnel" "media.service.fonctionnel" "liketable.service.fonctionnel" "note.service.fonctionnel" "debat.service.fonctionnel" "censure.service.fonctionnel" "sondage.service.fonctionnel" "notification.generator.services" "notification.diffusion.services" "preference.service.fonctionnel" "programme.service.fonctionnel" "debat.service.use.case" "bootcamp.user" "statistique.service.fonctionnel")
+projets_sf=("categorie.service.fonctionnel" "projet.service.fonctionnel" "commentaire.service.fonctionnel" "media.service.fonctionnel" "liketable.service.fonctionnel" "note.service.fonctionnel" "debat.service.fonctionnel" "censure.service.fonctionnel" "sondage.service.fonctionnel" "notification.generator.services" "notification.diffusion.services" "preference.service.fonctionnel" "programme.service.fonctionnel" "projet.service.use.case" "debat.service.use.case" "bootcamp.user" "statistique.service.fonctionnel")
 
 projetjar=("bootcamp.common" "bootcamp.database" "service.crud" "bootcamp.commonws" "bootcamp.rest.service.client" "bootcamp.security" "notification.diffusion.services")
 
@@ -65,12 +65,29 @@ echo "=======DEBUT DEPLOYEMENT DES RESSOURCES JARS========"
 echo "pwd"
 cd jars && mvn -DskipTests install deploy 
 cd ../elasticsearch.service
-echo "pwd"
+pwd
 echo "=======DEBUT DEPLOYEMENT JAR elasticsearch========"
 mvn -DskipTests install deploy
-
+cd ..
 echo "===========COPIE DES DOSSIER CONFIG MEDIA EPUB DANS LE HOME=============="
-cp -r scripts/home /home
+pwd
+sudo cp -r scripts/home/* /home/
+echo "===========FIN COPIE DES DOSSIER CONFIG MEDIA EPUB DANS LE HOME=============="
+
+echo "=======DEBUT DEPLOYEMENT DES RESSOURCES SF========"
+cd pagdevops
+pwd
+mvn -DskipTests  -P dev clean install
+echo "=======FIN DEPLOYEMENT DES RESSOURCES SF========"
+
+echo "======= DEPLOYEMENT DU SERVICE ELASTICSEARCH========"
+docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" --name elastic --net=host docker.elastic.co/elasticsearch/elasticsearch:6.3.2 -d
+echo "=======FIN DEPLOYEMENT DU SERVICE ELASTICSEARCH========"
+
+sudo docker-compose up --build -d
+
+
+
 
 
 # git clone https://github.com/ibrahim00017/pagdevops.git
@@ -94,7 +111,6 @@ cp -r scripts/home /home
 # cd "$pagdevops"
 # mvn -DskipTests  -P dev clean install
 
-#docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" --name elastic --net=host docker.elastic.co/elasticsearch/elasticsearch:6.3.2 -d
 
 
 #pagdevops= echo "$pag./pagdevops"
